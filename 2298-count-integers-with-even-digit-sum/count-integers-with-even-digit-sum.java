@@ -2,7 +2,7 @@ class Solution {
     public int countEven(int num) {
         int count=0;
 
-        for(int i=2;i<=num;i++)
+        for(int i=1;i<=num;i++)
         {
             int temp=i;
             int digit=0;
