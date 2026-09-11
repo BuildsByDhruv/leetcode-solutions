@@ -1,0 +1,39 @@
+class Solution {
+    public int[] findEvenNumbers(int[] digits) {
+        ArrayList<Integer> ans=new ArrayList<>();
+        boolean[] used=new boolean[1000];
+
+        for(int i=0;i<digits.length;i++)
+        {
+            if(digits[i]==0) continue;
+
+            for(int j=0;j<digits.length;j++)
+            {
+                if(j==i) continue;
+
+                for(int k=0;k<digits.length;k++)
+                {
+                    if(k==i || k==j) continue;
+
+                    if(digits[k]%2==0)
+                    {
+                        int num=digits[i]*100+digits[j]*10+digits[k];
+
+                        if(!used[num])
+                        {
+                            used[num]=true;
+                            ans.add(num);
+                        }
+                    }
+                }
+            }
+        }
+        int[] arr=new int[ans.size()];
+        for(int i=0; i<ans.size(); i++)
+        {
+            arr[i]=ans.get(i);
+        }
+        Arrays.sort(arr);
+        return arr;
+    }
+}
