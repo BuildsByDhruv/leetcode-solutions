@@ -1,0 +1,27 @@
+class Solution {
+    public boolean checkValidString(String s) {
+        int i,min=0,max=0;
+
+        for(i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)=='(')
+            {
+                min++;
+                max++;
+            }
+            else if(s.charAt(i)==')')
+            {
+                min--;
+                max--;
+            }
+            else
+            {
+                min--;
+                max++;
+            }
+            if(max<0) return false;
+            min=Math.max(0,min);
+        }
+        return min==0;
+    }
+}
